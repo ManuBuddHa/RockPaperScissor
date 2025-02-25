@@ -19,8 +19,7 @@ function getComputerChoice(){
 function getHumanChoice(){
    inp=prompt("Enter Your Choice (Rock/Paper/Scissor) :");
    inp=inp.toLowerCase();
-   if(inp=="rock"|| inp=="paper"||inp=="scissor"){
-      return inp;
+   if(inp=="rock"|| inp=="paper"||inp=="scissor"){ 
    }
    else{
       window.alert("Wrong Input, Please try again");
@@ -28,5 +27,45 @@ function getHumanChoice(){
    }
    return inp;
 }
-console.log(getHumanChoice());
-console.log(getComputerChoice());
+function playRound(HumanChoice,ComputerChoice)
+{
+   console.log("User Choice : ",HumanChoice);
+   console.log("Computer Choice : ",ComputerChoice);
+   if(HumanChoice=="rock" && ComputerChoice=="paper")
+   {
+      console.log("You Lose! Paper Beat Rock");
+      computerScore++;
+   }
+   else if(HumanChoice=="scissor" && ComputerChoice=="rock")
+   {
+      console.log("You Lose! Rock Beat Scissor");
+      computerScore++;
+   }
+   else if(HumanChoice=="paper" && ComputerChoice=="scissor")
+   {
+      console.log("You Lose! Scissor Beat Paper");
+      computerScore++;
+   }
+   else if(HumanChoice==ComputerChoice){
+      console.log("Draw");
+   }
+   else{
+      console.log("You Win");
+      humanScore++
+   }
+}
+function playGame(){
+   playRound(getHumanChoice(),getComputerChoice());
+   console.log("Your Score :", humanScore,"\nComputer Score :",computerScore);
+}
+playGame();
+playGame();
+playGame();
+playGame();
+playGame();
+if(humanScore>computerScore){
+   console.log("YOU WIN out of 5 Rounds!");
+}
+else{
+   console.log("YOU LOST");
+}
