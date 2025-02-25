@@ -1,13 +1,32 @@
 console.log("Hello World!");
-let opt=["Rock","Paper","Scissor"];
+var humanScore=0;
+var computerScore=0;
+var inp;
 function getComputerChoice(){
-   let choice=random(opt);
-   console.log(choice);
+   let num=Math.random();
+   let ComputerChoice;
+   if(num<0.33){
+      ComputerChoice="rock";
+   }
+   else if(num>0.33 & num<0.66){
+      ComputerChoice="paper";
+   }
+   else{
+      ComputerChoice="scissor";
+   }
+   return ComputerChoice;
 }
 function getHumanChoice(){
-   let HumanChoice=prompt("Enter Your Choice (Rock/Paper/Scissor) :");
-   HumanChoice=HumanChoice.toLowerCase();
-   console.log(HumanChoice);
+   inp=prompt("Enter Your Choice (Rock/Paper/Scissor) :");
+   inp=inp.toLowerCase();
+   if(inp=="rock"|| inp=="paper"||inp=="scissor"){
+      return inp;
+   }
+   else{
+      window.alert("Wrong Input, Please try again");
+      getHumanChoice();
+   }
+   return inp;
 }
-getHumanChoice();
-getComputerChoice();
+console.log(getHumanChoice());
+console.log(getComputerChoice());
