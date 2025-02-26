@@ -3,13 +3,24 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Rock Paper Scissor in Console</title>
+   <link rel="stylesheet" href="styles.css" type="text/css">
+   <title>Rock Paper Scissor - The Odin Project</title>
 </head>
 <body>
    <center>
       <h1>The Rock Paper Scissor Game</h1>
-      <p>This game is played entirely in console as a part of learning from The Odin Project</p>
+      <button onclick="playRock()">Rock</button>
+      <button onclick="playPaper()">Paper</button>
+      <button onclick="playScissor()">Scissor</button>
+      <button onclick="reset">Reset</button>
    </center>
+   <div id="show">
+      <div class="choices">
+         <h3 id="humanChoice"></h3>
+         <h3 id="computerChoice"></h3>
+      </div>
+      <div class="result"></div>
+   </div>
    <script src="script.js"></script>
 </body>
 </html>

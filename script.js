@@ -1,71 +1,90 @@
-console.log("Hello World!");
-var humanScore=0;
-var computerScore=0;
-var inp;
-function getComputerChoice(){
-   let num=Math.random();
-   let ComputerChoice;
-   if(num<0.33){
-      ComputerChoice="rock";
-   }
-   else if(num>0.33 & num<0.66){
-      ComputerChoice="paper";
-   }
-   else{
-      ComputerChoice="scissor";
-   }
-   return ComputerChoice;
-}
-function getHumanChoice(){
-   inp=prompt("Enter Your Choice (Rock/Paper/Scissor) :");
-   inp=inp.toLowerCase();
-   if(inp=="rock"|| inp=="paper"||inp=="scissor"){ 
-   }
-   else{
-      window.alert("Wrong Input, Please try again");
-      getHumanChoice();
-   }
-   return inp;
-}
-function playRound(HumanChoice,ComputerChoice)
+let computerChoice;
+let humanChoice;
+let humanScore=0;
+let computerScore=0;
+const human=document.getElementById("humanChoice");
+const comp=document.getElementById("computerChoice");
+const score=document.querySelector(".result");
+const Result=document.createElement("h3");
+const Hscore=document.createElement("h3");
+const Cscore=document.createElement("h3");
+function playRock()
 {
-   console.log("User Choice : ",HumanChoice);
-   console.log("Computer Choice : ",ComputerChoice);
-   if(HumanChoice=="rock" && ComputerChoice=="paper")
-   {
-      console.log("You Lose! Paper Beat Rock");
-      computerScore++;
+   humanChoice="rock";
+   human.textContent="Your Choice : Rock";
+   computer();
+   console.log(humanChoice);
+   console.log(computerChoice);
+   playRound(humanChoice,computerChoice);
+}
+function playPaper()
+{
+   humanChoice="paper";
+   human.textContent="Your Choice : Paper";
+   computer();
+   console.log(humanChoice);
+   console.log(computerChoice);
+   playRound(humanChoice,computerChoice);
+}
+function playScissor()
+{
+   humanChoice="scissor"
+   human.textContent="Your Choice : Scissor";
+   computer();
+   console.log(humanChoice);
+   console.log(computerChoice);
+   playRound(humanChoice,computerChoice);
+}
+function computer()
+{
+   var num=Math.random()
+   if(num<0.333){
+      computerChoice="rock";
+      comp.textContent="Computer Choice : Rock";
    }
-   else if(HumanChoice=="scissor" && ComputerChoice=="rock")
-   {
-      console.log("You Lose! Rock Beat Scissor");
-      computerScore++;
-   }
-   else if(HumanChoice=="paper" && ComputerChoice=="scissor")
-   {
-      console.log("You Lose! Scissor Beat Paper");
-      computerScore++;
-   }
-   else if(HumanChoice==ComputerChoice){
-      console.log("Draw");
+   else if(num>0.333 & num<0.666){
+      computerChoice="paper";
+      comp.textContent="Computer Choice : Paper";
    }
    else{
-      console.log("You Win");
-      humanScore++
+      computerChoice="scissor";
+      comp.textContent="Computer Choice : Scissor";
    }
 }
-function playGame(){
-   playRound(getHumanChoice(),getComputerChoice());
-   console.log("Your Score :", humanScore,"\nComputer Score :",computerScore);
+function playRound(humanChoice,computerChoice){
+   if(humanChoice=="rock" & computerChoice=="paper"){
+      lose();
+   }
+   else if(humanChoice=="paper" & computerChoice=="scissor"){
+      lose();
+   }
+   else if(humanChoice=="scissor" & computerChoice=="rock"){
+      lose()
+   }
+   else if(humanChoice==computerChoice){
+      Result.textContent="Draw";
+      score.appendChild(Result);
+      Hscore.textContent="Your Score : "+humanScore;
+      Cscore.textContent="Computer Score : "+computerScore;
+      score.appendChild(Cscore);
+      score.appendChild(Hscore);
+   }
+   else{
+      Result.textContent="You Won";
+      score.appendChild(Result);
+      humanScore++;
+      Hscore.textContent="Your Score : "+humanScore;
+      Cscore.textContent="Computer Score : "+computerScore;
+      score.appendChild(Cscore);
+      score.appendChild(Hscore);
+   }
 }
-playGame();
-playGame();
-playGame();
-playGame();
-playGame();
-if(humanScore>computerScore){
-   console.log("YOU WIN out of 5 Rounds!");
-}
-else{
-   console.log("YOU LOST");
+function lose(){
+   Result.textContent="You Lose";
+   score.appendChild(Result);
+   computerScore++;
+   Hscore.textContent="Your Score : "+humanScore;
+   Cscore.textContent="Computer Score : "+computerScore;
+   score.appendChild(Cscore);
+   score.appendChild(Hscore);
 }
