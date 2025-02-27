@@ -1,6 +1,7 @@
 .result{
-   background-color: red;
+   background-color: rgb(141, 22, 22);
    height: 200px;
+   width: 33%;
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -9,13 +10,55 @@
    color: white;
 }
 #show{
-   border: 2px solid blue;
+   border: 2px solid black;
    margin: 50px auto auto auto;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   width: 50%;
+   box-shadow: 0px 0px 20px black;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
 }
 .choices{
    height: 200px;
+   width: 35%;
    display: flex;
    flex-direction: column;
    align-items: center;
    justify-content: center;
+   background-color: cyan;
+}
+.final{
+   color: blue;
+   background: yellow;
+   width: 33%;
+   height: 50px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 25px;
+}
+.buttons{
+   width: 35%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+button{
+   width: 150px;
+   height: 50px;
+   border: 2px solid yellow;
+   border-radius: 5px;
+   background-color: blueviolet;
+   color: white;
+   font-family: 'Times New Roman', Times, serif;
+   font-weight: bold;
+   font-size: 20px;
+}
+.reset{
+   margin-top: 5%;
+   background-color: red;
+   color: white;
+   font-size: 24px;
+   font-family:'Courier New', Courier, monospace;
 }

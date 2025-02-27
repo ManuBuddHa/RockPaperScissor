@@ -8,19 +8,23 @@
 </head>
 <body>
    <center>
-      <h1>The Rock Paper Scissor Game</h1>
-      <button onclick="playRock()">Rock</button>
-      <button onclick="playPaper()">Paper</button>
-      <button onclick="playScissor()">Scissor</button>
-      <button onclick="reset">Reset</button>
+      <h1><u>The Rock Paper Scissor Game</u></h1>
+      <div class="buttons">
+         <button onclick="playRock()">Rock</button>
+         <button onclick="playPaper()">Paper</button>
+         <button onclick="playScissor()">Scissor</button>
+      </div>
    </center>
    <div id="show">
       <div class="choices">
          <h3 id="humanChoice"></h3>
          <h3 id="computerChoice"></h3>
       </div>
-      <div class="result"></div>
+      <h3 class="final"></h3>
+      <div class="result">
+      </div>
    </div>
+   <center><button onclick="reset()" class="reset">Reset</button></center>
    <script src="script.js"></script>
 </body>
 </html>

@@ -2,12 +2,18 @@ let computerChoice;
 let humanChoice;
 let humanScore=0;
 let computerScore=0;
-const human=document.getElementById("humanChoice");
-const comp=document.getElementById("computerChoice");
-const score=document.querySelector(".result");
-const Result=document.createElement("h3");
+const human=document.getElementById("humanChoice"); //html h3 of class humanChoice to Output the Human choice
+const comp=document.getElementById("computerChoice"); //html h3 of class computerChoice to Output the computer choice
+const result=document.querySelector(".result");
+const final=document.querySelector(".final");
 const Hscore=document.createElement("h3");
 const Cscore=document.createElement("h3");
+human.textContent="Your Choice : "
+comp.textContent="Computer Choice : "
+result.appendChild(Cscore);
+result.appendChild(Hscore);
+Hscore.textContent="Your Score : 0";
+Cscore.textContent="Computer Score : 0";
 function playRock()
 {
    humanChoice="rock";
@@ -62,29 +68,30 @@ function playRound(humanChoice,computerChoice){
       lose()
    }
    else if(humanChoice==computerChoice){
-      Result.textContent="Draw";
-      score.appendChild(Result);
+      final.textContent="Draw";
       Hscore.textContent="Your Score : "+humanScore;
       Cscore.textContent="Computer Score : "+computerScore;
-      score.appendChild(Cscore);
-      score.appendChild(Hscore);
    }
    else{
-      Result.textContent="You Won";
-      score.appendChild(Result);
+      final.textContent="You Won";
       humanScore++;
       Hscore.textContent="Your Score : "+humanScore;
       Cscore.textContent="Computer Score : "+computerScore;
-      score.appendChild(Cscore);
-      score.appendChild(Hscore);
    }
 }
 function lose(){
-   Result.textContent="You Lose";
-   score.appendChild(Result);
+   final.textContent="You Lose";
    computerScore++;
    Hscore.textContent="Your Score : "+humanScore;
    Cscore.textContent="Computer Score : "+computerScore;
-   score.appendChild(Cscore);
-   score.appendChild(Hscore);
+}
+function reset()
+{
+   humanScore=0;
+   computerScore=0;
+   Hscore.textContent="Your Score : 0";
+   Cscore.textContent="Computer Score : 0";
+   human.textContent="Your Choice : "
+   comp.textContent="Computer Choice : "
+   final.textContent="";
 }
